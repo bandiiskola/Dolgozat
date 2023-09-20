@@ -28,5 +28,23 @@ function tarol() {
 }
 
 function kiir() {
+    var benzin = 0
+    var dizel = 0
+    var elektromos = 0
 
+    var s = ""
+    s += "<table style='width:100%'><tr><td colspan='2' rowspan='3'>Üzemanyag szerint</td><td>Benzin</td><td>Dízel</td><td>Elektromos</td></tr>"
+    for (var i = 0; i < tomb.length; i++) {
+        if (tomb[i].tipus == "benzin") {
+            benzin++
+        } else if (tomb[i].tipus == "dizel") {
+            dizel++
+        } else {
+            elektromos++
+        }
+    }
+    s += "<tr><td>" + benzin + "</td><td>" + dizel + "</td><td>" + elektromos + "</td></tr>"
+    
+
+    document.getElementById("beiras").innerHTML = s
 }
