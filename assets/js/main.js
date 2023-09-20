@@ -73,7 +73,7 @@ function kiir() {
     s += "<tr><td colspan='3'>Első tulajdonosok százalékos aránya</td><td colspan='6'>" + Math.round((elsotulaj / tomb.length) * 100, 2) + "%</td></tr>"
     s += "<tr><td colspan='3'>Rendszámok megoszlása</td><td colspan='3'>Régi rendszám</td><td colspan='3'>Új rendszám</td></tr>"
     s += "<tr><td colspan='3'></td><td colspan='3'>" + regirendszam + "</td><td colspan='3'>" + ujrendszam + "</td></tr>"
-    s += "<tr><td colspan='3'>Melyik a népszerűbb?</td><td colspan='6'>"+nepszerubb+"</td></tr></table>"
+    s += "<tr><td colspan='3'>Melyik a népszerűbb?</td><td colspan='6'>" + nepszerubb + "</td></tr></table>"
 
     document.getElementById("beiras").innerHTML = s
 }
