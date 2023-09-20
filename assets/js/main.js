@@ -26,3 +26,7 @@ function tarol() {
     }
     console.log(tomb)
 }
+
+function kiir() {
+
+}
