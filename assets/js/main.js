@@ -31,9 +31,12 @@ function kiir() {
     var benzin = 0
     var dizel = 0
     var elektromos = 0
+    var elsotulaj = 0
+    var ujrendszam=0
+    var regirendszam=0
 
     var s = ""
-    s += "<table style='width:100%'><tr><td colspan='2' rowspan='3'>Üzemanyag szerint</td><td>Benzin</td><td>Dízel</td><td>Elektromos</td></tr>"
+    s += "<table style='width:75%'><tr><td rowspan='2' colspan='3'>Üzemanyag szerint</td><td colspan='2'>Benzin</td><td colspan='2'>Dízel</td><td colspan='2'>Elektromos</td></tr>"
     for (var i = 0; i < tomb.length; i++) {
         if (tomb[i].tipus == "benzin") {
             benzin++
@@ -42,9 +45,22 @@ function kiir() {
         } else {
             elektromos++
         }
+        if (tomb[i].elsotulaj == true) {
+            elsotulaj++
+        }
+        if (tomb[i].rendszam.length==8)
+        {
+            ujrendszam++
+        }
+        else{
+            regirendszam++
+        }
     }
-    s += "<tr><td>" + benzin + "</td><td>" + dizel + "</td><td>" + elektromos + "</td></tr>"
-    
+    s += "<tr><td colspan='2'>" + benzin + "</td><td colspan='2'>" + dizel + "</td><td colspan='2'>" + elektromos + "</td></tr>"
+    s += "<tr><td colspan='3'>Első tulajdonosok százalékos aránya</td><td colspan='6'>" + Math.round((elsotulaj / tomb.length) * 100,2) + "%</td></tr>"
+    s+="<tr><td colspan='3'>Rendszámok megoszlása</td><td colspan='3'>Régi rendszám</td><td colspan='3'>Új rendszám</td></tr>"
+    s+="<tr><td colspan='3'></td><td colspan='3'>"+regirendszam+"</td><td colspan='3'>"+ujrendszam+"</td></tr>"
+    s+="<tr><td colspan='3'>Melyik a népszerűbb?</td><td colspan='6'>"
 
     document.getElementById("beiras").innerHTML = s
 }
